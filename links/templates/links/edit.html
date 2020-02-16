@@ -1,0 +1,76 @@
+<html>
+{% load staticfiles %}
+<head>
+	<title>Links | {{ name }} | Edit</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'links/css/spectrum.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'links/css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'links/css/edit.css' %}">
+	<style type="text/css">
+		{% for ship in ships %}
+			.{{ ship.ship_type.name }} {
+				background-color: {{ ship.color }};
+			}
+		{% endfor %}
+	</style>
+</head>
+<body>
+	<div class="row" id="toolbar">
+		<button id="import">Import</button>
+		<button id="assign">Assign</button>
+		<button id="commit">Commit</button>
+		<a id="view_link" href="{% url links.views.view name %}">Go to View</a>
+		<a id="howto_link" href="{% url links.views.howto %}">How To</a>
+	</div>
+	
+	<div class="row">
+		<div id="div_links">
+			{% include 'links/table_links.html' %}
+		</div>
+	</div>
+	
+	<div class="row">
+		<div id="div_config">
+			{% include 'links/table_config.html' %}
+		</div>
+		
+		<div id="div_comp">
+			{% include 'links/table_comp.html' %}
+		</div>
+	</div>
+	
+	<div id="new_pilot_form">
+		<form>
+			<span>Enter pilot name</span><br>
+			<input id="new_pilot_name" type="text"><br>
+			<button id="new_pilot_create" type="submit">Create</button>
+			<button id="new_pilot_cancel">Cancel</button>
+		</form>
+	</div>
+	<div id="import_form">
+		<form>
+			<span>Copy from Fleet Composition</span><br>
+			<textarea id="import_comp" rows="5"></textarea><br>
+			<span>Active Wing's name</span><br>
+			<input id="import_wing_name" type="text" maxlength="10" value="{{ active_wing }}"><br>
+			<span>Ignore squad</span><br>
+			<input id="import_ignore_squad" type="text" maxlength="10" value="{{ ignore_squad }}"><br>
+			<button id="import_import" type="submit">Import</button>
+			<button id="import_cancel">Cancel</button>
+		</form>
+	</div>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="{% static 'links/js/spectrum.js' %}"></script>
+	<script src="{% static 'links/js/edit.js' %}"></script>
+	<script>
+		var COMMIT_URL = "{% url links.views.commit name %}";
+		var GROUPS = {
+			{% for ship in ships %}
+				"{{ ship.ship_type.name }}": "{{ ship.ship_type.get_group_display }}",
+			{% endfor %}
+		};
+	</script>
+</body>
+</html>

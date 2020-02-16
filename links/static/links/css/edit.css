@@ -1,0 +1,92 @@
+/* layout */
+#div_comp {
+	margin-left: 25px;
+}
+
+/* toolbar */
+#toolbar {
+	background-color: #DDD;
+	padding: 5px 15px;
+	width: 709px;
+}
+#view_link, #howto_link {
+	margin-left: 25px;
+}
+#view_link, #view_link:visited,
+#howto_link, #howto_link:visited {
+	color: #202020;
+}
+
+/* tables */
+.pilot {
+	cursor: default;
+}
+.ship {
+	cursor: pointer;
+}
+#table_links select {
+	border: none;
+	width: 50px;
+	height: 20px;
+}
+
+/* config */
+.ship_color {
+	width: 50px;
+}
+.sp-replacer {
+	border: none !important;
+	background: none !important;
+}
+.sp-dd {
+	color: #DDD;
+}
+.script {
+	border: none;
+	width: 120px;
+	height: 30px;
+}
+.ship {
+	height: 30px;
+	line-height: 30px;
+}
+
+/* popups */
+form {
+	margin: 0px;
+	padding: 0px;
+}
+form span {
+	font-size: 18px;
+	color: #EEE;
+	text-align: center;
+	width: 100%;
+}
+form input, form textarea {
+	margin: 5px 0px;
+	width: 100%;
+	background-color: #EEE;
+}
+#new_pilot_form, #import_form {
+	display: none;
+	z-index: 1;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	border: 3px solid #EEE;
+	background-color: #444;
+	padding: 25px;
+}
+#new_pilot_cancel, #import_cancel {
+	float: right;
+}
+#new_pilot_form {
+	width: 154px;
+	margin-left: -77px;
+}
+#import_form {
+	width: 300px;
+	margin-left: -150px;
+}
+
+

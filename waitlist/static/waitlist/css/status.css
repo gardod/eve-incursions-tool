@@ -1,0 +1,43 @@
+/* toolbar */
+#toolbar {
+	background-color: #DDD;
+	padding: 5px 15px;
+}
+#view_link, #view_link:visited {
+	color: #202020;
+}
+
+/* page layout */
+.table_div {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* tables */
+table {
+	border-collapse: collapse;
+	border: 1px solid #666;
+}
+table th, table td {
+	border: 1px solid #666;
+	width: 220px;
+	height: 21px;
+}
+table th {
+	border: 1px solid #666;
+	width: 250px;
+	height: 21px;
+	padding: 0px;
+}
+table td:nth-child(2) {
+	width: 30px;
+	text-align: center;
+	cursor: pointer;
+	background: #990000;
+}
+.ships {
+	float: right;
+	margin-right: 2px;
+}
+
+

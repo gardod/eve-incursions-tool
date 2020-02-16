@@ -1,0 +1,40 @@
+{% load links_extras %}
+<table id="table_links">
+	<thead>
+		<tr>
+			<th>Logi</th><th>TL</th><th>RSB</th>
+			<th>Link 1</th><th>Link 2</th><th>Link 3</th><th>Link 4</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for l in logi %}
+			<tr>
+				<td class="pilot_div logi droppable">
+					<div class="{{ l.pilot.ship_type.name }} pilot draggable move" data-type="{{ l.pilot.ship_type.name }}">
+						{% if l.pilot.stable %}<span class="stable">[S] </span>{% endif %}
+						<span class="name">{{ l.pilot.name }}</span>
+					</div>
+				</td>
+				<td class="pilot_tl">{{ l.pilot.tl }}</td>
+				<td class="pilot_rsb">{{ l.pilot.resebo }}</td>
+				{% for i, taker in l.links|enum %}
+					<td class="pilot_l{{ i|add:1 }} droppable">
+						<div class="{{ taker.ship_type.name }} pilot draggable move" data-type="{{ taker.ship_type.name }}"
+						onclick="CCPEVE.showInfo(1377, {{ taker.get_id }})">{{ taker.name }}</div>
+					</td>
+				{% endfor %}
+				{% for i in l.links|length|get_range_to:4 %}
+					<td class="pilot_l{{ i|add:1 }} droppable"></td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+		{% for i in logi|length|get_range_to:15 %}
+			<tr>
+				<td class="pilot_div logi droppable"></td>
+				<td class="pilot_tl">0</td>
+				<td class="pilot_rsb">0</td>
+				<td class="pilot_l1 droppable"></td><td class="pilot_l2 droppable"></td><td class="pilot_l3 droppable"></td><td class="pilot_l4 droppable"></td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

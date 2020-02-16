@@ -1,0 +1,37 @@
+<html>
+{% load staticfiles %}
+<head>
+	<title>Links | {{ name }}</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'links/css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'links/css/view.css' %}">
+	<style type="text/css">
+		{% for ship in ships %}
+			.{{ ship.ship_type.name }} {
+				background-color: {{ ship.color }};
+			}
+		{% endfor %}
+	</style>
+</head>
+<body>
+	<div class="row">
+		<div id="div_links">
+			{% include 'links/table_links_display.html' %}
+		</div>
+	</div>
+	
+	<div class="row">
+		<div id="div_config">
+			{% include 'links/table_config_display.html' %}
+		</div>
+		
+		<div id="div_comp">
+			{% include 'links/table_comp.html' %}
+		</div>
+	</div>
+	
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="{% static 'links/js/view.js' %}"></script>
+</body>
+</html>

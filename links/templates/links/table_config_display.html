@@ -1,0 +1,14 @@
+<table id="table_config">
+	<tbody>
+		{% for ship in ships %}
+			<tr class="ship_config">
+				<td class="ship_type" >
+					<div class="ship {{ ship.ship_type.name }}">{{ ship.ship_type.name|capfirst }}</div>
+				</td>
+				<td class="ship_script">
+					<span>{{ ship.get_script_display }}</span>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

@@ -1,0 +1,43 @@
+<html>
+{% load staticfiles %}
+<head>
+	<title>Links | HowTo</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'links/css/style.css' %}">
+	<style type="text/css">
+	p, h4 {
+	margin-left: 20px;
+	}
+	</style>
+</head>
+<body>
+	<h1>How To <i>Links</i></h1>
+	
+	<h2>Basics</h2>
+		<h4>Adding a pilot</h4>
+		<p>Click on his ship type and enter his name into the pop up.</p>
+		<h4>Removing a pilot</h4>
+		<p>Right click on the desired pilot. Removing a DPS pilot also removes him from the assigned links.</p>
+		
+		<h4>Adding a link</h4>
+		<p>Drag and drop a DPS pilot into the desired spot. Or left click on him to automatically assign him to the first empty link.</p>
+		<h4>Removing a link</h4>
+		<p>Right click on the linked pilot.</p>
+		
+		<h4>Stable basilisk</h4>
+		<p>Click on the pilot to (un)mark it as stable.</p>
+	<h2>Advanced Buttons</h2>
+		<h4>Import</h4>
+		<p>Import works with the fleet composition window.
+		To open it you need to click the fleet options and "Show Fleet Composition". To view the whole wing you need to be in fleet boss, fleet commander or wing commander position.<br>
+		From there you select all (ctrl+a) and copy (ctrl+c) its content into the box, set name of active wing and press import. Alternatively you can also enter a name of a squad to ignore.
+		This will add all the missing pilots from active squad as well as remove those who are not.</p>
+		
+		<h4>Assign</h4>
+		<p>Assign button automatically assigns links for each logistic pilot going in DPS priority: long, short and lastly mid.</p>
+
+		<h4>Commit</h4>
+		<p>Saves any changes made to the server. Others can now refresh the page to view updates.</p>
+	
+</body>
+</html>

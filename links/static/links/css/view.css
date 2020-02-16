@@ -1,0 +1,28 @@
+/* layout */
+#div_comp {
+	margin-left: 77px;
+}
+
+/* tables */
+#table_links th:nth-child(2), #table_links th:nth-child(3),
+#table_links td:nth-child(2), #table_links td:nth-child(3) {
+	text-align: center;
+}
+.highlighted {
+	border: medium solid #DDD;
+}
+.pilot, .ship {
+	cursor: default;
+}
+.pilot_l1 .pilot,
+.pilot_l2 .pilot,
+.pilot_l3 .pilot,
+.pilot_l4 .pilot {
+	cursor: pointer;
+}
+
+
+/* config */
+.ship_script span{
+	padding-left: 10px;
+}

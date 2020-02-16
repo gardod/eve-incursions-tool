@@ -1,0 +1,56 @@
+<html>
+{% load staticfiles %}
+<head>
+	<title>Waitlist | {{ name }}</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'waitlist/css/style.css' %}">
+	<style type="text/css">
+	table td {
+		text-align:center;
+	}
+	</style>
+</head>
+<body onload="CCPEVE.requestTrust('http://links-andtrat.rhcloud.com/')">
+	{% if error %}
+		<div id="error">{{ error|safe }}</div>
+	{% endif %}
+	
+	{% if logi_wl %}
+		<div id="row">
+			<h2>{{ pilot_name }}</h2>
+			Your position in queue (reload to update)
+			<table>
+				<tr>
+					<th>Logi</th>
+					<th>DPS</th>
+				</tr>
+				<tr>
+					<td>{{ logi_wl }}</td>
+					<td>{{ dps_wl }}</td>
+				</tr>
+			</table>
+			<form action="{% url waitlist.views.leave name %}" method="post">
+				{% csrf_token %}
+				<br>
+				<input type="submit" value="Leave waitlist">
+			</form>
+		</div>
+	{% endif %}
+	
+	{% if ship_type %}
+		<div id="row">
+			<h2>{{ pilot_name }}</h2>
+			<form action="{% url waitlist.views.join name %}" method="post">
+				{% csrf_token %}
+				{% for ship in ship_types %}
+					<input type="checkbox" name="ship" value="{{ ship.name }}" {% if ship == ship_type %}checked="checked"{% endif %}>
+					{{ ship.name|capfirst }}<br>
+				{% endfor %}
+				<br>
+				<input type="submit" value="Join waitlist">
+			</form>
+		</div>
+	{% endif %}
+
+</body>
+</html>

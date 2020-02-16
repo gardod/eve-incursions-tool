@@ -1,0 +1,58 @@
+<html>
+{% load staticfiles %}
+<head>
+	<title>Waitlist | {{ name }} | Status</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'waitlist/css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'waitlist/css/status.css' %}">
+</head>
+<body>
+	<div class="row" id="toolbar">
+		<a id="view_link" href="{% url waitlist.views.view name %}">Go to View</a>
+	</div>
+	
+	<div class="row">
+		<div class="table_div">
+			<table id="logi">
+				<tr><th colspan="2">Logi</th></tr>
+				{% for pilot in logi_wl %}
+					<tr class="pilot">
+						<td class="data">
+							<span class="name">{{ pilot.name }}</span>
+							<span class="ships">
+							{% for ship_type in pilot.ship_type.all %}
+								{{ ship_type.name.0|capfirst }}
+							{% endfor %}
+							</span>
+						</td>
+						<td class="remove">X</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+		<div class="table_div">
+			<table id="dps">
+				<tr><th colspan="2">DPS</th></tr>
+				{% for pilot in dps_wl %}
+					<tr class="pilot">
+						<td class="data">
+							<span class="name">{{ pilot.name }}</span>
+							<span class="ships">
+							{% for ship_type in pilot.ship_type.all %}
+								{{ ship_type.name.0|capfirst }}
+							{% endfor %}
+							</span>
+						</td>
+						<td class="remove">X</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="{% static 'waitlist/js/status.js' %}"></script>
+	<script>
+		var REMOVE_URL = "{% url waitlist.views.remove name %}";
+	</script>
+</body>
+</html>

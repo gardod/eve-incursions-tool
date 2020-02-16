@@ -1,0 +1,18 @@
+{% load links_extras %}
+<table id="table_comp">
+	<thead>
+		<tr>
+			<th class="numerator"></th><th>Short</th><th>Mid</th><th>Long</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in 25|get_range %}
+			<tr>
+				<td class="numerator">{{ i|add:1 }}</td>
+				<td class="short">{% if i < short|length %}<div class="{{ short|get_nth_pilot_ship_type:i }} pilot draggable copy" data-type="{{ short|get_nth_pilot_ship_type:i }}"><span class="name">{{ short|get_nth_pilot_name:i }}</span></div>{% endif %}</td>
+				<td class="mid">{% if i < mid|length %}<div class="{{ mid|get_nth_pilot_ship_type:i }} pilot draggable copy" data-type="{{ mid|get_nth_pilot_ship_type:i }}"><span class="name">{{ mid|get_nth_pilot_name:i }}</span></div>{% endif %}</td>
+				<td class="long">{% if i < long|length %}<div class="{{ long|get_nth_pilot_ship_type:i }} pilot draggable copy" data-type="{{ long|get_nth_pilot_ship_type:i }}"><span class="name">{{ long|get_nth_pilot_name:i }}</span></div>{% endif %}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

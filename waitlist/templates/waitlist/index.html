@@ -1,0 +1,65 @@
+<html>
+{% load staticfiles %}
+<head>
+	<title>Waitlist</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'waitlist/css/style.css' %}">
+	<style type="text/css">
+	.row {
+		text-align:center;
+	}
+	#name_form, #credit {
+		margin-top: 100px;
+	}
+	#error {
+		background-color: #DDD;
+		color: #202020;
+		width: 300px;
+		margin: 0px auto;
+	}
+	#isn_link {
+		font-size: 30px;
+		font-weight: bold;
+		text-decoration: none;
+		color: #DDD;
+	}
+	form input {
+		background-color: #EEE;
+	}
+	#my_info {
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	<div class="row">
+		<div id="name_form">
+			<h1>Welcome</h1>
+			<h2>Create a new waitlist page</h2>
+			<form method="post" action="">
+				{% csrf_token %}
+				<input id="name" type="text" name="name" maxlength="20">
+				<input type="submit">
+			</form>
+			{% if error %}
+				<div id="error">{{ error|safe }}</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="row">
+		<div id="credit">
+			Inspired by the ever awesome<br>
+			<a id="isn_link" href="http://www.eve-isn.com/">ISN</a>
+		</div>
+	</div>
+	<div class="row">
+		<div id="author">
+			For feedback and support mail 
+			<b id="my_info" onclick="CCPEVE.showInfo(1377, 92029865)">Andrej Tierce</b>
+		</div>
+	</div>
+	<script>
+		document.getElementById("name").focus();
+	</script>
+</body>
+</html>

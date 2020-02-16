@@ -1,0 +1,21 @@
+<table id="table_config">
+	<tbody>
+		{% for ship in ships %}
+			<tr class="ship_config" data-type="{{ ship.ship_type.name }}">
+				<td class="ship_type" >
+					<div class="ship {{ ship.ship_type.name }}">{{ ship.ship_type.name|capfirst }}</div>
+				</td>
+				<td class="ship_color">
+					<input type="text" class="color" value="{{ ship.color }}">
+				</td>
+				<td class="ship_script">
+					<select class="script">
+						<option value="">None</option>
+						<option value="1" {% if ship.script == 1 %}selected="selected"{% endif %}>Optimal Range</option>
+						<option value="2" {% if ship.script == 2 %}selected="selected"{% endif %}>Tracking Speed</option>
+					</select>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
